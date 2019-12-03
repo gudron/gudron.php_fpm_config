@@ -1,0 +1,4 @@
+---
+php_version: 7.3
+
+conf_file_path: /any/path/to/vhost/config/files/directory/

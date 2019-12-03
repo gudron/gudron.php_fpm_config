@@ -1,0 +1,18 @@
+{{ ansible_managed | comment(decoration="; ") }}
+
+{{ 'FPM Configuration' | comment(decoration="; ") }}
+
+{{ 'Global Options' | comment(decoration="; ") }}
+
+[global]
+pid = {{ pid }}
+
+error_log = {{ error_log }}
+
+daemonize = {{ daemonize }}
+
+events.mechanism = {{ events.mechanism }}
+
+{{ 'Pool Definitions' | comment(decoration="; ") }}
+
+include={{ php_conf_files_path }}*.conf

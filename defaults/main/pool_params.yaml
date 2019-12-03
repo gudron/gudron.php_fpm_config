@@ -1,0 +1,109 @@
+default_pools_params:
+  user: app-worker
+  group: app-worker
+  pm:
+    strategy: dynamic
+    max_children: 4
+    start_servers: 1
+    min_spare_servers: 1
+    max_spare_servers: 2
+    max_requests: 64
+  process:
+    priority: 2
+    dumpable: false
+  security:
+    limit_extensions:
+      - .php
+      - .php3
+      - .php4
+      - .php5
+      - .php7
+      - .phtml
+      - .phar
+  request_terminate_timeout: 45s
+  request_slowlog_timeout: 42s
+  rlimit_files: 1024
+  clear_env: true
+  catch_workers_output: false
+  decorate_workers_output: true
+  admin_flags:
+    log_errors: "On"
+    short_open_tag: "On"
+    expose_php: "Off"
+  flags:
+    log_errors: "On"
+    display_startup_errors: "Off"
+  admin_values:
+    memory_limit: 160mb
+    post_max_size: 32mb
+    upload_max_filesize: 32mb
+    max_file_uploads: 4
+    variables_order: EGPCS
+    error_log: /dev/stderr
+    error_reporting: E_ALL & ~E_NOTICE & ~E_STRICT
+    disable_functions: "{{ disabled_functions_params | join(',') }}"
+    max_execution_time: 43s
+    max_input_time: 13s
+  val:
+    date.timezone: Etc/UTC
+  ping:
+    response: pong
+  # TODO: add support to chroot/chdir options
+
+pools_params:
+  exmaple_pool_1:
+    template_path: "/any/path/to/exmaple_pool_1/template/path/tpl.conf.j2"
+    port: 9010
+    user: app-worker
+    group: app-worker
+    pm:
+      strategy: dynamic
+      max_children: 4
+      start_servers: 1
+      min_spare_servers: 1
+      max_spare_servers: 2
+      max_requests: 64
+    process:
+      priority: 2
+      dumpable: false
+    security:
+      limit_extensions:
+        - .php
+        - .php3
+        - .php4
+        - .php5
+        - .php7
+        - .phtml
+    request_terminate_timeout: 45s
+    request_slowlog_timeout: 44s
+    slowlog: /path/to/slowlog/exmaple_pool_1.log
+    rlimit_files: 1024
+    clear_env: true
+    catch_workers_output: false
+    decorate_workers_output: true
+    env_variables:
+      - MYSQL_POOL1_WORKER_USER
+      - MYSQL_POOL1_WORKER_PASSWORD
+
+  exmaple_pool_2:
+    address: "{{ project_name }}-php-backend"
+    template_path: "/any/path/to/exmaple_pool_2/template/path/tpl.conf.j2"
+    port: 9011
+    pm:
+      strategy: static
+      max_children: 4
+    process:
+      priority: 2
+      dumpable: false
+    request_terminate_timeout: 45s
+    request_slowlog_timeout: 44s
+    slowlog: /path/to/slowlog/exmaple_pool_1.log
+    rlimit_files: 1024
+    clear_env: true
+    catch_workers_output: false
+    decorate_workers_output: true
+    env_variables:
+      - MYSQL_POOL2_WORKER_USER
+      - MYSQL_POOL2_WORKER_PASSWORD
+    include_params:
+      - /etc/php-fpm/conf.d/include_file.conf

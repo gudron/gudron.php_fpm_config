@@ -1,0 +1,5 @@
+---
+php_conf_files_path: /etc/php/{{ php_version }}/fpm/
+
+events:
+  mechanism: epoll

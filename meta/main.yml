@@ -1,0 +1,38 @@
+galaxy_info:
+  author: Alex V Kotelnikov 
+  description: Role for create php-fpm config files
+  license: Apache
+
+  min_ansible_version: 2.4
+
+  platforms:
+    - name: Ubuntu
+      versions:
+        - 18.04
+        - 16.04
+    - name: Debian
+      versions:
+        - 8.0
+        - 9.0  
+
+  galaxy_tags:
+    - php-fpm
+    - php-fpm server
+    - php server
+    - php fastcgi
+    - php fastcgi server
+    
+
+allow_duplicates: true    
+dependencies:
+  - role: gudron.php_fpm_pool
+    src: git@bitbucket.org:gdrn_cloud/gudron.php_fpm_pool.git
+    scm: git
+    vars:
+      php_version: "{{ php_version }}"
+      php_conf_files_path: "{{ php_conf_files_path }}/pool.d/"
+      default_pools_params: "{{ default_pools_params }}"
+      conf_file_path: "{{ conf_file_path }}"
+      pools_params: "{{ pools_params }}"
+    tags:
+      - nginx-vhost-config

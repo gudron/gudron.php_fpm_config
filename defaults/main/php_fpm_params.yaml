@@ -1,0 +1,14 @@
+disabled_functions_params:
+  - dl
+  # - exec
+  - passthru
+  # - shell_exec
+  # - system
+  - proc_open
+  - popen
+  - parse_ini_file
+  - show_source
+
+pid: /run/php-fpm.pid
+error_log: /var/log/php-fpm.log
+daemonize: "no"

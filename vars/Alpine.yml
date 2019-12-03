@@ -1,0 +1,5 @@
+---
+php_conf_files_path: /usr/local/etc/php-fpm.d/pools/
+
+events:
+  mechanism: epoll
