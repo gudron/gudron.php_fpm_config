@@ -28,7 +28,7 @@ Role Variables
 
     This parameters will be passed to dependent [gudron.php_fpm_pool role](https://github.com/gudron/gudron.nginx_vhost).
 
-    Еo find out all available variables check **gudron.php_fpm_pool** role [default variables](https://github.com/gudron/gudron.php_fpm_pool/blob/master/defaults/main/main.yml).
+    To find out all available variables check **gudron.php_fpm_pool** role [default variables](https://github.com/gudron/gudron.php_fpm_pool/blob/master/defaults/main/main.yml).
 
   * `pools_params: dict`
     Dictionary contains parameters of PHP-FPM pool. By default, parameters from `default_pools_params` are inherited. 
