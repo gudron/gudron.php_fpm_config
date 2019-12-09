@@ -83,37 +83,34 @@ Example Playbook
         ansible_distribution: Debian
             
       roles:
-        - name: gudron.nginx_config
+        - name: gudron.php_fpm_config
           vars: 
-            conf_file_path: /any/path/to/nginx/config/files/directory/
-            virtual_hosts_destintion_path: /example/project/nginx/conf.d/sites-available/
-            proxy_params:
-              http_version: "1.0"
-              buffering: "on"
-              buffers_count: 4
-              buffer_size: 256k
-              buffer_size_first_response: 512k
-              busy_buffers_size: 512k
-              connect_timeout: 30s
-              read_timeout: 31s
-            virlual_hosts_params:
-              api:
-                port: 80
-                domain: api.example.com
-                type: proxy
-                root: /example/project/app/static/dir/
-                status_path: ngxstatus
-                headers:
-                  X-Content-Type-Options: nosniff
-                  Strict-Transport-Security: max-age=31536000; includeSubDomains
-                  X-Frame-Options: SAMEORIGIN
-                proxy_params:
-                  X-Real-IP: $remote_addr
-                include_params:
-                  - /etc/nginx/conf.d/include_file.conf
-                backends: 
-                  - address: api.example.internal
-                    port: 8080
+            php_version: 7.3
+            conf_file_path: /example/project/php-fpm/pool.d/sites-available/
+            pid: /run/php-fpm.pid
+            error_log: /var/log/php-fpm.log
+            daemonize: "no"
+            pools_params:
+              example_pool_1:
+                port: 9011
+                user: example_user
+                group: example_user
+                slowlog: /path/to/slowlog/exmaple_pool_1.log
+                env_variables:
+                  - MYSQL_POOL1_WORKER_USER
+                  - MYSQL_POOL1_WORKER_PASSWORD
+
+              example_pool_2:
+                port: 9012
+                user: example_user_2
+                group: example_user_2
+                security:
+                  limit_extensions:
+                    - .php
+                    - .php7
+                env_variables:
+                  - MYSQL_POOL2_WORKER_USER
+                  - MYSQL_POOL2_WORKER_PASSWORD
 
 License
 -------
