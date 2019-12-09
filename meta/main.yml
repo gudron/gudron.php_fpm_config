@@ -1,7 +1,7 @@
 galaxy_info:
-  author: Alex V Kotelnikov 
+  author: Alex V Kotelnikov
   description: Role for create php-fpm config files
-  license: Apache
+  license: Apache 2.0
 
   min_ansible_version: 2.4
 
@@ -13,7 +13,7 @@ galaxy_info:
     - name: Debian
       versions:
         - 8.0
-        - 9.0  
+        - 9.0
 
   galaxy_tags:
     - php-fpm
@@ -21,9 +21,9 @@ galaxy_info:
     - php server
     - php fastcgi
     - php fastcgi server
-    
 
-allow_duplicates: true    
+
+allow_duplicates: true
 dependencies:
   - role: gudron.php_fpm_pool
     src: git@bitbucket.org:gdrn_cloud/gudron.php_fpm_pool.git

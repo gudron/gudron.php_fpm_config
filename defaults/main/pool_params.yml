@@ -48,7 +48,6 @@ default_pools_params:
     date.timezone: Etc/UTC
   ping:
     response: pong
-  # TODO: add support to chroot/chdir options
 
 pools_params:
   exmaple_pool_1:
