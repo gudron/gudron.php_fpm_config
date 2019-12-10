@@ -26,7 +26,7 @@ galaxy_info:
 allow_duplicates: true
 dependencies:
   - role: gudron.php_fpm_pool
-    src: git@bitbucket.org:gdrn_cloud/gudron.php_fpm_pool.git
+    src: git@github.com.org:gudron/gudron.php_fpm_pool.git
     scm: git
     vars:
       php_version: "{{ php_version }}"
