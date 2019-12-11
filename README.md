@@ -20,7 +20,7 @@ Role Variables
   * `error_log: string`
     Path to error log file.
 
-  * `daemonize: string`
+  * `daemonize: boolean`
     Send FPM to background. Can contains only "on" or "off" string values.
 
   * `default_pools_params: dict`
