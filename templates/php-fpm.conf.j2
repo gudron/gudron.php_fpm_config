@@ -9,7 +9,7 @@ pid = {{ pid }}
 
 error_log = {{ error_log }}
 
-daemonize = {{ daemonize }}
+daemonize = {{ daemonize and 'On' or 'Off' }}
 
 events.mechanism = {{ events.mechanism }}
 

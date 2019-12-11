@@ -11,4 +11,4 @@ disabled_functions_params:
 
 pid: /run/php-fpm.pid
 error_log: /var/log/php-fpm.log
-daemonize: "no"
+daemonize: True
