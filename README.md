@@ -21,7 +21,7 @@ Role Variables
     Path to error log file.
 
   * `daemonize: boolean`
-    Send FPM to background. Can contains only "on" or "off" string values.
+    Send FPM to background. Can contains only True or False boolean values.
 
   * `default_pools_params: dict`
     Default pool parameters. Like `user`, `group`, `request_terminate_timeout` and etc.
