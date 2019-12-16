@@ -10,7 +10,7 @@ default_pools_params:
     max_requests: 64
   process:
     priority: 2
-    dumpable: false
+    dumpable: False
   security:
     limit_extensions:
       - .php
@@ -65,7 +65,7 @@ pools_params:
       max_requests: 64
     process:
       priority: 2
-      dumpable: false
+      dumpable: False
     security:
       limit_extensions:
         - .php
@@ -94,7 +94,7 @@ pools_params:
       max_children: 4
     process:
       priority: 2
-      dumpable: false
+      dumpable: False
     request_terminate_timeout: 45s
     request_slowlog_timeout: 44s
     slowlog: /path/to/slowlog/exmaple_pool_1.log
