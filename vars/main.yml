@@ -1,12 +1,12 @@
 ---
+is_php_installed: "{{ lookup('pipe','command -v php-config > /dev/null && echo True || echo False') | bool }}"
+
 php_pools_conf_files_path: "{{ php_conf_files_path }}pool.d/"
 php_pools_sites_anbled_conf_files_path: "{{ php_pools_conf_files_path }}sites-enabled"
 
-compiled_conf_files_path: "{{ conf_file_path + php_conf_files_path}}"
-compiled_pools_conf_files_path: "{{ conf_file_path + php_pools_conf_files_path}}"
+compiled_conf_files_path: "{{ conf_file_path + php_conf_files_path }}"
+compiled_pools_conf_files_path: "{{ conf_file_path + php_pools_conf_files_path }}"
 
-is_php_installed: "{{ lookup('pipe','command -v php-config > /dev/null && echo True || echo False') | bool }}"
-
-installed_prefix: "{{ is_php_installed and lookup('pipe',php_config_path + ' --prefix') }}"
-installed_php_version: "{{ is_php_installed and lookup('pipe',php_config_path + ' --version') }}"
-php_version: "{{ installed_php_version | default(php_version) }}"
+installed_prefix: "{{ is_php_installed and lookup('pipe','php-config --prefix') or None }}"
+installed_php_version: "{{ is_php_installed and lookup('pipe','php-config --version') or None }}"
+true_php_version: "{{ installed_php_version != None and php_version }}"
