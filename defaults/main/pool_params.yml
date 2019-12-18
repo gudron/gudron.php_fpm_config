@@ -1,4 +1,4 @@
-default_pools_params:
+default_pools_parameters:
   user: app-worker
   group: app-worker
   pm:
@@ -50,9 +50,9 @@ default_pools_params:
   ping:
     response: pong
 
-pools_params:
+pools:
   exmaple_pool_1:
-    template_path: "/any/path/to/exmaple_pool_1/template/path/tpl.conf.j2"
+    template_path: /any/path/to/exmaple_pool_1/template/path/tpl.conf.j2
     port: 9010
     user: app-worker
     group: app-worker
@@ -87,7 +87,7 @@ pools_params:
 
   exmaple_pool_2:
     address: "{{ project_name }}-php-backend"
-    template_path: "/any/path/to/exmaple_pool_2/template/path/tpl.conf.j2"
+    template_path: /any/path/to/exmaple_pool_2/template/path/tpl.conf.j2
     port: 9011
     pm:
       strategy: static

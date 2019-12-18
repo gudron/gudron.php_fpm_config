@@ -23,15 +23,15 @@ Role Variables
   * `daemonize: boolean`
     Send FPM to background. Can contains only True or False boolean values.
 
-  * `default_pools_params: dict`
+  * `default_pools_parameters: dict`
     Default pool parameters. Like `user`, `group`, `request_terminate_timeout` and etc.
 
     This parameters will be passed to dependent [gudron.php_fpm_pool role](https://github.com/gudron/gudron.nginx_vhost).
 
     To find out all available variables check **gudron.php_fpm_pool** role [default variables](https://github.com/gudron/gudron.php_fpm_pool/blob/master/defaults/main/main.yml).
 
-  * `pools_params: dict`
-    Dictionary contains parameters of PHP-FPM pool. By default, parameters from `default_pools_params` are inherited. 
+  * `pools: dict`
+    Dictionary contains parameters of PHP-FPM pool. By default, parameters from `default_pools_parameters` are inherited. 
 
     This parameters will be passed to dependent [gudron.php_fpm_pool role](https://github.com/gudron/gudron.nginx_vhost).
 
