@@ -2,12 +2,6 @@
 - name: Include OS-specific variables.
   include_vars: "{{ ansible_distribution }}.yml"
 
-- debug:
-    msg: "{{ is_php_installed }}"
-
-- debug:
-    msg: "{{ true_php_version }}"
-
 - name: Inlcude tasks
   include_tasks: "{{ task_name }}"
   loop:
