@@ -1,0 +1,11 @@
+---
+- name: Log level value check
+  assert:
+    that: log.level in ['alert', 'error', 'warning', 'notice', 'debug']
+    msg: "'log.level' must be in ['alert', 'error', 'warning', 'notice', 'debug']"
+
+---
+- name: Syslog facility check
+  assert:
+    that: syslog.facility in ['console', 'daemon']
+    msg: "'syslog.facility' must be in ['console', 'daemon']"

@@ -9,6 +9,15 @@ pid = {{ pid }}
 
 error_log = {{ error_log }}
 
+log_level = {{ log.level }}
+{% if true_php_version is version('7.3', '>=') %}
+log_limit = {{ log.limit }}
+log_buffering = {{ log.buffering and 'yes' or 'no' }}
+{% endif %}
+
+syslog.facility = {{ syslog.facility }}
+syslog.ident = {{ syslog.ident }}
+
 daemonize = {{ daemonize and 'On' or 'Off' }}
 
 events.mechanism = {{ events.mechanism }}

@@ -20,6 +20,15 @@ Role Variables
   * `error_log: string`
     Path to error log file.
 
+  * `syslog: dict`
+    Dict with syslog settings.
+
+    * `facility: string`
+      Used to specify what type of program is logging the message. [Official php-fpm documentation](https://www.php.net/manual/en/install.fpm.configuration.php#syslog-ident)
+
+    * `ident: string`
+      Prepended to every message. If you have multiple FPM instances running on the same server, you can change the default value which must suit common needs. [Official php-fpm documentation](https://www.php.net/manual/en/install.fpm.configuration.php#syslog-facility)
+
   * `daemonize: boolean`
     Send FPM to background. Can contains only True or False boolean values.
 

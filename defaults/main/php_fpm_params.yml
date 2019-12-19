@@ -12,3 +12,12 @@ disabled_functions_params:
 pid: /run/php-fpm.pid
 error_log: /var/log/php-fpm.log
 daemonize: True
+
+log:
+  limit: 1024
+  level: notice
+  buffering: True
+
+syslog:
+  facility: daemon
+  ident: php-fpm
