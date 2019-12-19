@@ -20,6 +20,18 @@ Role Variables
   * `error_log: string`
     Path to error log file.
 
+  * `log: dict`
+    Dict with logs settings.
+
+    * `level: string`
+      Error log level. Possible values: alert, error, warning, notice, debug. [Official php-fpm documentation](https://www.php.net/manual/en/install.fpm.configuration.php#log-level)
+
+    * `limit: int`
+      Log limit for the logged lines which allows to log messages longer than 1024 characters without wrapping. [Official php-fpm documentation](https://www.php.net/manual/en/install.fpm.configuration.php#log-limit)
+
+    * `buffering: boolean`
+      Experimental logging without extra buffering. [Official php-fpm documentation](https://www.php.net/manual/en/install.fpm.configuration.php#log-buffering)
+
   * `syslog: dict`
     Dict with syslog settings.
 
