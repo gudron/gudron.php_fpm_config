@@ -44,6 +44,27 @@ Role Variables
   * `daemonize: boolean`
     Send FPM to background. Can contains only True or False boolean values.
 
+  * `emergency: dict`
+    Dict with emergency settings.
+
+    * `restart_threshold: int`
+      If this number of child processes exit with SIGSEGV or SIGBUS within the time interval set by emergency_restart_interval, then FPM will restart. [Official php-fpm documentation](https://www.php.net/manual/en/install.fpm.configuration.php#emergency-restart-threshold)
+
+    * `restart_interval: mixed`
+      Interval of time used by emergency_restart_interval to determine when a graceful restart will be initiated. This can be useful to work around accidental corruptions in an accelerator's shared memory. Available Units: s(econds), m(inutes), h(ours), or d(ays). [Official php-fpm documentation](https://www.php.net/manual/en/install.fpm.configuration.php#emergency-restart-interval)
+
+  * `process_control_timeout: mixed`
+    Time limit for child processes to wait for a reaction on signals from master. Available units: s(econds), m(inutes), h(ours), or d(ays). [Official php-fpm documentation](https://www.php.net/manual/en/install.fpm.configuration.php#process-control-timeout)
+
+  * `process: dict`
+    Dict with process settings.
+
+    * `priority: int`
+      Specify the nice(2) priority to apply to the master process (only if set). The value can vary from -19 (highest priority) to 20 (lower priority) [Official php-fpm documentation](https://www.php.net/manual/en/install.fpm.configuration.php#process-priority)
+
+    * `max: mixed`
+      The maximum number of processes FPM will fork. This has been design to control the global number of processes when using dynamic PM within a lot of pools. Use it with caution. [Official php-fpm documentation](https://www.php.net/manual/en/install.fpm.configuration.php#process-max)
+
   * `default_pools_parameters: dict`
     Default pool parameters. Like `user`, `group`, `request_terminate_timeout` and etc.
 
