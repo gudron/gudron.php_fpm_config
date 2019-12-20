@@ -21,3 +21,16 @@ log:
 syslog:
   facility: daemon
   ident: php-fpm
+
+emergency:
+  restart_threshold: 10
+  restart_interval: 1m
+
+process_control_timeout: 10s
+process:
+  max: 0
+  priority: 2
+
+rlimit:
+  files: 65536
+  core: 0

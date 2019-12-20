@@ -10,3 +10,5 @@ compiled_pools_conf_files_path: "{{ conf_file_path + php_pools_conf_files_path }
 installed_prefix: "{{ is_php_installed and lookup('pipe','php-config --prefix') or None }}"
 installed_php_version: "{{ is_php_installed and lookup('pipe','php-config --version') or None }}"
 true_php_version: "{{ installed_php_version != None and php_version }}"
+
+true_rlimit_files: "{{ rlimit_files | default(rlimit.files) }}"

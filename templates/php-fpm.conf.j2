@@ -18,9 +18,29 @@ log_buffering = {{ log.buffering and 'yes' or 'no' }}
 syslog.facility = {{ syslog.facility }}
 syslog.ident = {{ syslog.ident }}
 
-daemonize = {{ daemonize and 'On' or 'Off' }}
+{% if emergency.restart_threshold != 0 %}
+emergency_restart_threshold = {{ emergency.restart_threshold }}
+{% endif %}
+{% if emergency.restart_interval != 0 %}
+emergency_restart_interval = {{ emergency.restart_interval }}
+{% endif %}
 
+{% if process_control_timeout != 0 %}
+emergency_restart_interval = {{ process_control_timeout }}
+{% endif %}
+process.max = {{ process.max }}
+{% if process.priority is defined %}
+process.priority = {{ process.priority }}
+{% endif %}
+
+daemonize = {{ daemonize and 'yes' or 'no' }}
+
+{% if events.mechanism is defined %}
 events.mechanism = {{ events.mechanism }}
+{% endif %}
+
+rlimit_files = {{ true_rlimit_files }}
+rlimit_core = {{ rlimit.core }}
 
 {{ 'Pool Definitions' | comment(decoration="; ") }}
 
