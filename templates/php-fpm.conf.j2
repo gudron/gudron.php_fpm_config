@@ -41,7 +41,7 @@ events.mechanism = {{ events.mechanism }}
 
 rlimit_files = {{ true_rlimit_files }}
 rlimit_core = {{ rlimit.core }}
-{% if process_control_timeout > 0 %}
+{% if systemd_interval > 0 %}
 systemd_interval = {{ systemd_interval }}
 {% endif %}
 
