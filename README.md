@@ -21,7 +21,7 @@ Role Variables
     Path to error log file.
 
   * `log: dict`
-    Dict with logs settings.
+    Dictionary with logs settings.
 
     * `level: string`
       Error log level. Possible values: alert, error, warning, notice, debug. [Official php-fpm documentation](https://www.php.net/manual/en/install.fpm.configuration.php#log-level)
@@ -33,7 +33,7 @@ Role Variables
       Experimental logging without extra buffering. [Official php-fpm documentation](https://www.php.net/manual/en/install.fpm.configuration.php#log-buffering)
 
   * `syslog: dict`
-    Dict with syslog settings.
+    Dictionary with syslog settings.
 
     * `facility: string`
       Used to specify what type of program is logging the message. [Official php-fpm documentation](https://www.php.net/manual/en/install.fpm.configuration.php#syslog-ident)
@@ -45,7 +45,7 @@ Role Variables
     Send FPM to background. Can contains only True or False boolean values.
 
   * `emergency: dict`
-    Dict with emergency settings.
+    Dictionary with emergency settings.
 
     * `restart_threshold: int`
       If this number of child processes exit with SIGSEGV or SIGBUS within the time interval set by emergency_restart_interval, then FPM will restart. [Official php-fpm documentation](https://www.php.net/manual/en/install.fpm.configuration.php#emergency-restart-threshold)
@@ -57,7 +57,7 @@ Role Variables
     Time limit for child processes to wait for a reaction on signals from master. Available units: s(econds), m(inutes), h(ours), or d(ays). [Official php-fpm documentation](https://www.php.net/manual/en/install.fpm.configuration.php#process-control-timeout)
 
   * `process: dict`
-    Dict with process settings.
+    Dictionary with process settings.
 
     * `priority: int`
       Specify the nice(2) priority to apply to the master process (only if set). The value can vary from -19 (highest priority) to 20 (lower priority) [Official php-fpm documentation](https://www.php.net/manual/en/install.fpm.configuration.php#process-priority)
@@ -79,6 +79,15 @@ Role Variables
 
     * `env_variables: list`
       List of environment variables which will be passed to pool process.
+
+  * `rlimit: dict`
+    Dictionary with logs settings.
+
+    * `files: int`
+      Set open file descriptor rlimit for the master process. [Official php-fpm documentation](https://www.php.net/manual/en/install.fpm.configuration.php#rlimit-files-master)
+
+    * `core: int`
+      Set max core size rlimit for the master process. [Official php-fpm documentation](https://www.php.net/manual/en/install.fpm.configuration.php#rlimit-core-master)
 
   * `disabled_functions_params: list`
     List of default disabled functions. [Official php-fpm documentation](https://www.php.net/manual/en/ini.core.php#ini.disable-functions).
