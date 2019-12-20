@@ -20,8 +20,50 @@ Role Variables
   * `error_log: string`
     Path to error log file.
 
+  * `log: dict`
+    Dictionary with logs settings.
+
+    * `level: string`
+      Error log level. Possible values: alert, error, warning, notice, debug. [Official php-fpm documentation](https://www.php.net/manual/en/install.fpm.configuration.php#log-level)
+
+    * `limit: int`
+      Log limit for the logged lines which allows to log messages longer than 1024 characters without wrapping. [Official php-fpm documentation](https://www.php.net/manual/en/install.fpm.configuration.php#log-limit)
+
+    * `buffering: boolean`
+      Experimental logging without extra buffering. [Official php-fpm documentation](https://www.php.net/manual/en/install.fpm.configuration.php#log-buffering)
+
+  * `syslog: dict`
+    Dictionary with syslog settings.
+
+    * `facility: string`
+      Used to specify what type of program is logging the message. [Official php-fpm documentation](https://www.php.net/manual/en/install.fpm.configuration.php#syslog-ident)
+
+    * `ident: string`
+      Prepended to every message. If you have multiple FPM instances running on the same server, you can change the default value which must suit common needs. [Official php-fpm documentation](https://www.php.net/manual/en/install.fpm.configuration.php#syslog-facility)
+
   * `daemonize: boolean`
     Send FPM to background. Can contains only True or False boolean values.
+
+  * `emergency: dict`
+    Dictionary with emergency settings.
+
+    * `restart_threshold: int`
+      If this number of child processes exit with SIGSEGV or SIGBUS within the time interval set by emergency_restart_interval, then FPM will restart. [Official php-fpm documentation](https://www.php.net/manual/en/install.fpm.configuration.php#emergency-restart-threshold)
+
+    * `restart_interval: mixed`
+      Interval of time used by emergency_restart_interval to determine when a graceful restart will be initiated. This can be useful to work around accidental corruptions in an accelerator's shared memory. Available Units: s(econds), m(inutes), h(ours), or d(ays). [Official php-fpm documentation](https://www.php.net/manual/en/install.fpm.configuration.php#emergency-restart-interval)
+
+  * `process_control_timeout: mixed`
+    Time limit for child processes to wait for a reaction on signals from master. Available units: s(econds), m(inutes), h(ours), or d(ays). [Official php-fpm documentation](https://www.php.net/manual/en/install.fpm.configuration.php#process-control-timeout)
+
+  * `process: dict`
+    Dictionary with process settings.
+
+    * `priority: int`
+      Specify the nice(2) priority to apply to the master process (only if set). The value can vary from -19 (highest priority) to 20 (lower priority) [Official php-fpm documentation](https://www.php.net/manual/en/install.fpm.configuration.php#process-priority)
+
+    * `max: mixed`
+      The maximum number of processes FPM will fork. This has been design to control the global number of processes when using dynamic PM within a lot of pools. Use it with caution. [Official php-fpm documentation](https://www.php.net/manual/en/install.fpm.configuration.php#process-max)
 
   * `default_pools_parameters: dict`
     Default pool parameters. Like `user`, `group`, `request_terminate_timeout` and etc.
@@ -37,6 +79,18 @@ Role Variables
 
     * `env_variables: list`
       List of environment variables which will be passed to pool process.
+
+  * `rlimit: dict`
+    Dictionary with logs settings.
+
+    * `files: int`
+      Set open file descriptor rlimit for the master process. [Official php-fpm documentation](https://www.php.net/manual/en/install.fpm.configuration.php#rlimit-files-master)
+
+    * `core: int`
+      Set max core size rlimit for the master process. [Official php-fpm documentation](https://www.php.net/manual/en/install.fpm.configuration.php#rlimit-core-master)
+
+  * `systemd_interval: int`
+    When FPM is build with systemd integration, specify the interval, in second, between health report notification to systemd. [Official php-fpm documentation](https://www.php.net/manual/en/ini.core.php#systemd-interval).
 
   * `disabled_functions_params: list`
     List of default disabled functions. [Official php-fpm documentation](https://www.php.net/manual/en/ini.core.php#ini.disable-functions).

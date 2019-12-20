@@ -1,0 +1,24 @@
+---
+- name: Log level value check
+  assert:
+    that: log.level in ['alert', 'error', 'warning', 'notice', 'debug']
+    msg: "'log.level' must be in ['alert', 'error', 'warning', 'notice', 'debug']"
+
+- name: Syslog facility check
+  assert:
+    that: syslog.facility in ['console', 'daemon']
+    msg: "'syslog.facility' must be in ['console', 'daemon']"
+
+- name: Events mechanism check
+  assert:
+    that: events.mechanism in ['select', 'pool', 'epoll', 'kqueue', 'port']
+    msg: "'events.mechanism' must be in ['select', 'pool', 'epoll', 'kqueue', 'port']"
+
+- name: Process priority check
+  assert:
+    that:
+      - process.priority >= -19
+      - process.priority <= 20
+    msg: "'process.priority' must be great or equal -19 and less or equal 20"
+  when:
+    - process.priority is defined
