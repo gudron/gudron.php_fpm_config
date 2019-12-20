@@ -34,3 +34,5 @@ process:
 rlimit:
   files: 65536
   core: 0
+
+systemd_interval: 0
