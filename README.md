@@ -89,6 +89,9 @@ Role Variables
     * `core: int`
       Set max core size rlimit for the master process. [Official php-fpm documentation](https://www.php.net/manual/en/install.fpm.configuration.php#rlimit-core-master)
 
+  * `systemd_interval: int`
+    When FPM is build with systemd integration, specify the interval, in second, between health report notification to systemd. [Official php-fpm documentation](https://www.php.net/manual/en/ini.core.php#systemd-interval).
+
   * `disabled_functions_params: list`
     List of default disabled functions. [Official php-fpm documentation](https://www.php.net/manual/en/ini.core.php#ini.disable-functions).
 
