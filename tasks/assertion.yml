@@ -17,8 +17,8 @@
 - name: Process priority check
   assert:
     that:
-      - pool.process.priority >= -19
-      - pool.process.priority <= 20
-    msg: "'pool.process.priority' must be great or equal -19 and less or equal 20"
+      - process.priority >= -19
+      - process.priority <= 20
+    msg: "'process.priority' must be great or equal -19 and less or equal 20"
   when:
-    - pool.process.priority is defined
+    - process.priority is defined
