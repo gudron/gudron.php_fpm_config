@@ -5,6 +5,7 @@
 - name: Inlcude tasks
   include_tasks: "{{ task_name }}"
   loop:
-    - prepare_config.yaml
+    - assertion.yml
+    - prepare_config.yml
   loop_control:
     loop_var: task_name
