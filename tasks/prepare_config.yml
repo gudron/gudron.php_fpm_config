@@ -5,7 +5,7 @@
     state: directory
     mode: '0750'
 
-- name: Prepare php-fpm www pool conffile
+- name: Prepare php-fpm www pool conf-file
   template:
     src: "templates/php-fpm.conf.j2"
     dest: "{{ compiled_conf_files_path }}/php-fpm.conf"
