@@ -89,10 +89,12 @@ Example Playbook
             conf_file_path: /example/project/php-fpm/pool.d/sites-available/
             pid: /run/php-fpm.pid
             error_log: /var/log/php-fpm.log
-            daemonize: "no"
+            daemonize: True
             pools_params:
               example_pool_1:
-                port: 9011
+                listen:
+                  address: 127.0.0.1
+                  port: 9011
                 user: example_user
                 group: example_user
                 slowlog: /path/to/slowlog/exmaple_pool_1.log
@@ -101,7 +103,9 @@ Example Playbook
                   - MYSQL_POOL1_WORKER_PASSWORD
 
               example_pool_2:
-                port: 9012
+                listen:
+                  address: 192.168.0.1
+                  port: 9012
                 user: example_user_2
                 group: example_user_2
                 security:
@@ -111,6 +115,33 @@ Example Playbook
                 env_variables:
                   - MYSQL_POOL2_WORKER_USER
                   - MYSQL_POOL2_WORKER_PASSWORD
+
+              example_pool_3:
+                listen:
+                  socket: /path/to/unix/file.socket
+                user: example_user_3
+                group: example_user_3
+                security:
+                  limit_extensions:
+                    - .php
+                    - .php7
+                env_variables:
+                  - MYSQL_POOL3_WORKER_USER
+                  - MYSQL_POOL3_WORKER_PASSWORD
+
+              example_pool_4:
+                listen:
+                  port: 9013
+                user: example_user_4
+                group: example_user_4
+                security:
+                  limit_extensions:
+                    - .php
+                    - .php7
+                env_variables:
+                  - MYSQL_POOL4_WORKER_USER
+                  - MYSQL_POOL4_WORKER_PASSWORD
+
 
 License
 -------
