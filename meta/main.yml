@@ -30,7 +30,7 @@ dependencies:
     scm: git
     vars:
       php_version_param: "{{ true_php_version }}"
-      php_conf_files_path: "{{ php_pools_conf_files_path }}"
+      php_conf_files_path: "{{ php_conf_files_path }}"
       default_pools_params: "{{ default_pools_parameters }}"
       conf_file_path_param: "{{ conf_file_path }}"
       pools_params: "{{ pools }}"
