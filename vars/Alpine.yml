@@ -1,5 +1,6 @@
 ---
-php_conf_files_path: /usr/local/etc/php-fpm.d/
+php_conf_files_path: /usr/local/etc/php-fpm.d
+php_pools_files_path: "{{ php_conf_files_path }}/pools"
 
 events:
   mechanism: epoll
